@@ -7,6 +7,7 @@ class CreateTickets < ActiveRecord::Migration
       t.string :image
       t.boolean :status, null: false
       t.references :user, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
     end
