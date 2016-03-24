@@ -1,2 +1,52 @@
-<h1>Tickets#show</h1>
-<p>Find me in app/views/tickets/show.html.erb</p>
+<h2>Ticket #<%=@ticket.id%>: <%=@ticket.issue%></h2>
+
+<h3><%=@ticket.housing_project%>, <%=@ticket.building%>, <%=@ticket.other_details%></h3>
+
+<h3>Priority Level: <%=@ticket.level%></h3>
+<h3>Status:
+	<%if @ticket.status == true%>
+		Closed
+	<%else%>
+		Open
+	<%end%>
+</h3>
+
+
+</h3>
+
+
+<h3>Filed at <%=@ticket.created_at%> by <%=@ticket.user.email%></h3>
+
+<h3>
+
+<h4>Issue Description</h4>
+----
+	<p>
+		<%=@ticket.description%>
+	</p>
+----
+
+	<ul>
+		<%@comments.each do |comment|%>
+			<li><h5><%=comment.user.email%></h5></li>
+				<p><%=comment.body%><p>
+
+				-----
+
+		<%end%>
+		</ul>
+
+
+
+<%if logged_in?%>
+	<%=form_for @comment do |f|%>
+	<%= hidden_field_tag('ticket_id', @ticket.id) %>
+	<p>Add a Comment or an Update</p>
+	<%= f.text_area :body%>
+	<%= f.submit %>
+	<%end%>
+<%end%>
+
+
+
+

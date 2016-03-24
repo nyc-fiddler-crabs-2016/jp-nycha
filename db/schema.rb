@@ -34,15 +34,18 @@ ActiveRecord::Schema.define(version: 20160324140200) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "tickets", force: :cascade do |t|
-    t.string   "issue",       null: false
-    t.text     "description", null: false
-    t.string   "level",       null: false
+    t.string   "issue",           null: false
+    t.text     "description",     null: false
+    t.string   "level",           null: false
+    t.string   "housing_project", null: false
+    t.string   "building",        null: false
+    t.string   "other_details",   null: false
     t.string   "image"
-    t.boolean  "status",      null: false
+    t.boolean  "status",          null: false
     t.integer  "user_id"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "tickets", ["category_id"], name: "index_tickets_on_category_id", using: :btree

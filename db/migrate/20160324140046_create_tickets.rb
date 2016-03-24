@@ -4,6 +4,9 @@ class CreateTickets < ActiveRecord::Migration
       t.string :issue, null: false
       t.text :description, null: false
       t.string :level, null: false
+      t.string :housing_project, null: false
+      t.string :building, null: false
+      t.string :other_details, null: false
       t.string :image
       t.boolean :status, null: false
       t.references :user, index: true, foreign_key: true

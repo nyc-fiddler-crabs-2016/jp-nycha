@@ -1,23 +1,40 @@
 Rails.application.routes.draw do
-  get 'comments/create'
 
-  get 'comments/show'
+  resources :categories, only: [:show, :index]
+  
+  resources :tickets, only: [:index, :show, :create, :edit]
+  
 
-  get 'users/new'
+  resources :comments, only: [:create, :show]
 
-  get 'users/create'
+  resources :sessions, only: [:new, :create, :destroy]
 
-  get 'tickets/index'
+  resources :users, only: [:new, :create]
+  # get 'sessions/new'
 
-  get 'tickets/show'
+  # get 'sessions/create'
 
-  get 'tickets/create'
+  # get 'sessions/destroy'
 
-  get 'tickets/edit'
+  # get 'comments/create'
 
-  get 'categories/index'
+  # get 'comments/show'
 
-  get 'categories/show'
+  # get 'users/new'
+
+  # get 'users/create'
+
+  # get 'tickets/index'
+
+  # get 'tickets/show'
+
+  # get 'tickets/create'
+
+  # get 'tickets/edit'
+
+  # get 'categories/index'
+
+  # get 'categories/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
