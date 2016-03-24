@@ -13,8 +13,7 @@
   <%=link_to 'login', new_session_path%> | <%=link_to 'register', new_user_path%></li>
   <%else%>
     <li><%=link_to 'logout', session_path(User.find(session[:user_id])), method: :delete%></li>
-  <%end%> | Recent NYCHA Tickets | See Current Issues By Housing Project
-
+  <%end%> | <%=link_to 'home', categories_path%>
 
 <%= yield %>
 

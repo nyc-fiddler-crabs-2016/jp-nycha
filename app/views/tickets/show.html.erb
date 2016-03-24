@@ -4,7 +4,7 @@
 
 <h3>Priority Level: <%=@ticket.level%></h3>
 <h3>Status:
-	<%if @ticket.status == true%>
+	<%if @ticket.status%>
 		Closed
 	<%else%>
 		Open
@@ -41,6 +41,7 @@
 <%if logged_in?%>
 	<%=form_for @comment do |f|%>
 	<%= hidden_field_tag('ticket_id', @ticket.id) %>
+
 	<p>Add a Comment or an Update</p>
 	<%= f.text_area :body%>
 	<%= f.submit %>

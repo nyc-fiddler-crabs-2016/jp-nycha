@@ -6,3 +6,27 @@
 		</li>
 	<%end%>
 </ul>
+
+<%if logged_in?%>
+	<%=form_for @ticket do |f|%>
+	<%= hidden_field_tag('category_id', @category.id) %>
+
+	<p>File a Ticket</p>
+	<%=f.label :issue%>
+	<%= f.text_field :issue%><p>
+	<%=f.label :description%>
+	<%= f.text_area :description%><p>
+	<%=f.label :level%>
+	<%= f.text_area :level%><p>
+	<%=f.label :housing_project%>
+	<%= f.text_area :housing_project%><p>
+	<%=f.label :building%>
+	<%= f.text_area :building%><p>
+	<%=f.label :other_details%>
+	<%= f.text_area :other_details%><p>
+	<%=f.label :optional_image%>
+	<%= f.text_area :image%><p>
+	<%= f.select(:category, @categories.collect{|category| category.name})%><p>
+	<%= f.submit %>
+	<%end%>
+<%end%>

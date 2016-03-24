@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
-    def show
+   def show
   	@category = Category.find(params[:id])
+  	@categories = Category.all
   	@tickets = @category.tickets
   	@ticket = Ticket.new
   end
